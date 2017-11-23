@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.loslolos.synapse.Settings">
+
+    <ImageButton
+        android:id="@+id/creditsArrowBtn"
+        android:layout_width="49dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/arrow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactArrowBtn" />
+
+    <ImageButton
+        android:id="@+id/contactArrowBtn"
+        android:layout_width="49dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginTop="28dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/arrow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/musicRadioBtn" />
+
+    <ImageButton
+        android:id="@+id/rateappArrowBtn"
+        android:layout_width="49dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginTop="36dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/arrow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProfileArrowBtn" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/quicksand"
+        android:text="Settings"
+        android:textColor="#E4E5E5"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/editProfileTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/quicksand"
+        android:text="Edit Profile"
+        android:textColor="#E4E5E5"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/editProfileArrowBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/rateAppTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/quicksand"
+        android:text="Rate App"
+        android:textColor="#E4E5E5"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/rateappArrowBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProfileTextView" />
+
+    <TextView
+        android:id="@+id/musicTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/quicksand"
+        android:text="Music"
+        android:textColor="#E4E5E5"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/musicRadioBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rateAppTextView" />
+
+    <TextView
+        android:id="@+id/contactTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/quicksand"
+        android:text="Contact"
+        android:textColor="#E4E5E5"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/contactArrowBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/musicTextView" />
+
+    <TextView
+        android:id="@+id/creditsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/quicksand"
+        android:text="Credits"
+        android:textColor="#E4E5E5"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/creditsArrowBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactTextView" />
+
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="175dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/button_border_1"
+        android:fontFamily="@font/quicksand"
+        android:text="Log Out"
+        android:textColor="#E4E5E5"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioButton
+        android:id="@+id/musicRadioBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginTop="20dp"
+        android:buttonTint="#E4E5E5"
+        android:checked="true"
+        android:fontFamily="@font/quicksand"
+        android:text="On / Off"
+        android:textColor="#E4E5E5"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rateappArrowBtn" />
+
+    <ImageButton
+        android:id="@+id/editProfileArrowBtn"
+        android:layout_width="49dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginTop="44dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/arrow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+</android.support.constraint.ConstraintLayout>

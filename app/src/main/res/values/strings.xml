@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Synapse</string>
+    <string name="next_button">Next</string>
+    <string name="arrow_button_description">Arrow button for more</string>
+
+    <!--for user_profile page-->
+    <string name="user_name">First Last</string>
+    <string name="major_subtitle">Major</string>
+    <string name="user_major">user\'s major</string>
+    <string name="concentration_subtitle">Concentration</string>
+    <string name="user_concentration">user\'s concentration</string>
+    <string name="FOI_subtitle">Fields of Interest</string>
+    <string name="user_FOI">field 1\nfield 2\nfield 3\nfield 4\nfield 5</string>
+    <string name="bio_subtitle">About</string>
+    <string name="user_bio">user\'s bio</string>
+    <string name="contact_subtitle">Contact</string>
+    <string name="user_contact">user\'s email</string>
+    <string name="prevR_subtitle">Previous Research</string>
+    <string name="user_prevR">View Previous Research</string>
+    <string name="profile_button_description">Profile menu button</string>
+    <string name="research_button_description">Research menu button</string>
+    <string name="search_button_description">Search menu button</string>
+    <string name="favorite_button_description">Favorite menu button</string>
+    <string name="settings_button_description">Settings menu button</string>
+
+    <!--for account_info page-->
+    <string name="account_info_title">Account Information</string>
+    <string name="first_name_subtitle">First Name</string>
+    <string name="first_name_hint">enter first name</string>
+    <string name="last_name_subtitle">Last Name</string>
+    <string name="last_name_hint">enter last name</string>
+    <string name="email_subtitle">Email</string>
+    <string name="email_hint">enter email</string>
+    <string name="username_subtitle">Username</string>
+    <string name="username_hint">enter username</string>
+    <string name="password_subtitle">Password</string>
+    <string name="password_hint">enter password</string>
+    <string name="password_confirmation_subtitle">Confirm Password</string>
+    <string name="password_confirmation_hint">re-enter password</string>
+
+    <!--for favorites page-->
+    <string name="favorites_title">Favorites</string>
+    <string name="other_user_name1">Firstname Lastname 1</string>
+    <string name="other_user_name2">Stephanie Schulze</string>
+    <string name="other_user_name3">Firstname Lastname 3</string>
+    <string name="other_user_name4">Firstname Lastname 4</string>
+    <string name="other_user_name5">Firstname Lastname 5</string>
+    <string name="other_user_info">Major:major\nConcentration:concentration\nFields of Interest:field 1\nfield 2\nfield 3...</string>
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="foi_example1.xml">
+        <item>Applications of Game Theory</item>
+        <item>Population Dynamics</item>
+        <item>Ecology</item>
+        <item>Environmental Economics</item>
+        <item>Spatial Statistics</item>
+    </string-array>
+</resources>

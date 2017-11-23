@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.loslolos.synapse.UserProfile">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        style="@style/TitleText"
+        android:text="@string/user_name"
+        app:layout_constraintBottom_toTopOf="@id/scrollViewProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <ImageButton
+        android:id="@+id/imageButtonProfile"
+        android:layout_width="44dp"
+        android:layout_height="43dp"
+        android:background="@drawable/profile_button"
+        android:contentDescription="@string/profile_button_description"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonResearch"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonResearch"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonResearch"
+        app:srcCompat="?android:attr/selectableItemBackground" />
+
+    <ImageButton
+        android:id="@+id/imageButtonResearch"
+        android:layout_width="48dp"
+        android:layout_height="40dp"
+        android:background="@drawable/research_button"
+        android:contentDescription="@string/research_button_description"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonSearch"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonSearch"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonProfile"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonSearch" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSearch"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/search_button"
+        android:contentDescription="@string/search_button_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonFavorite"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonResearch"
+        app:layout_constraintTop_toBottomOf="@id/scrollViewProfile" />
+
+    <ImageButton
+        android:id="@+id/imageButtonFavorite"
+        android:layout_width="47dp"
+        android:layout_height="43dp"
+        android:background="@drawable/favorites_button"
+        android:contentDescription="@string/favorite_button_description"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonSearch"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonSettings"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonSearch"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonSearch" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSettings"
+        android:layout_width="46dp"
+        android:layout_height="42dp"
+        android:background="@drawable/settings_button"
+        android:contentDescription="@string/settings_button_description"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonFavorite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonFavorite"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonFavorite" />
+
+    <ScrollView
+        android:id="@+id/scrollViewProfile"
+        android:layout_width="330dp"
+        android:layout_height="415dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:scrollbarStyle="outsideOverlay"
+        app:layout_constraintBottom_toTopOf="@id/imageButtonSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewMajorTitle"
+                style="@style/SubtitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/major_subtitle"
+                app:layout_constraintBottom_toTopOf="@+id/textViewMajor"
+                app:layout_constraintStart_toStartOf="@+id/textViewMajor" />
+
+            <TextView
+                android:id="@+id/textViewMajor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/user_major"
+                android:background="@drawable/single_line_text_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="76dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                style="@style/SubtitleText"
+                android:id="@+id/textViewConcentration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/concentration_subtitle" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/user_concentration"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/single_line_text_border"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:id="@+id/textViewFOITitle"
+                style="@style/SubtitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/FOI_subtitle"
+                app:layout_constraintBottom_toTopOf="@+id/textViewFOI"
+                app:layout_constraintStart_toStartOf="@+id/textViewFOI" />
+
+            <TextView
+                android:id="@+id/textViewFOI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:lines="5"
+                android:text="@string/user_FOI"
+                android:background="@drawable/single_line_text_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="139dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:id="@+id/textViewAboutTitle"
+                style="@style/SubtitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/bio_subtitle"
+                app:layout_constraintBottom_toTopOf="@+id/textViewAbout"
+                app:layout_constraintStart_toStartOf="@+id/textViewAbout" />
+
+            <TextView
+                android:id="@+id/textViewAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:lines="6"
+                android:text="@string/user_bio"
+                android:background="@drawable/single_line_text_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="215dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:id="@+id/textViewContactTitle"
+                style="@style/SubtitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:text="@string/contact_subtitle"
+                app:layout_constraintBottom_toTopOf="@+id/textViewContact"
+                app:layout_constraintStart_toStartOf="@+id/textViewContact" />
+
+            <TextView
+                android:id="@+id/textViewContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/user_contact"
+                android:background="@drawable/single_line_text_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.32"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="311dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:id="@+id/textViewPrevRTitle"
+                style="@style/SubtitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/prevR_subtitle"
+                app:layout_constraintBottom_toTopOf="@+id/buttonPrevR"
+                app:layout_constraintStart_toStartOf="@+id/buttonPrevR" />
+
+            <Button
+                android:id="@+id/buttonPrevR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/single_line_text_border"
+                android:text="@string/user_prevR"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="352dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
