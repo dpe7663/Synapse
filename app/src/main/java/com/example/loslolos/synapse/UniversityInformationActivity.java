@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class UniversityInformation extends AppCompatActivity {
+public class UniversityInformationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class UniversityInformation extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentCreateProfile = new Intent(getApplicationContext(), UserProfile.class);
+                Intent intentCreateProfile = new Intent(getApplicationContext(), UserProfileActivity.class);
                 startActivity(intentCreateProfile);
             }
         });

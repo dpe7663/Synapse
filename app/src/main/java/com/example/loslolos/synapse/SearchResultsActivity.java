@@ -6,24 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Search extends AppCompatActivity {
+public class SearchResultsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
-
-        /*Creates the button for the regular Search Button*/
-        Button searchButton = (Button) findViewById(R.id.searchButton);
-
-        /*Creates action listener for the regular search button*/
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent searchIntent = new Intent(getApplicationContext(), SearchResults.class);
-                startActivity(searchIntent);
-            }
-        });
+        setContentView(R.layout.activity_search_results);
 
         /*Creates the buttons for each button located at the botton of the class*/
         Button profileButton = (Button) findViewById(R.id.profileButton);
@@ -36,7 +24,7 @@ public class Search extends AppCompatActivity {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profileIntent = new Intent(getApplicationContext(), UserProfile.class);
+                Intent profileIntent = new Intent(getApplicationContext(), UserProfileActivity.class);
                 startActivity(profileIntent);
             }
         });
@@ -44,7 +32,7 @@ public class Search extends AppCompatActivity {
         researchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent researchIntent = new Intent(getApplicationContext(), ResearchBackground.class);
+                Intent researchIntent = new Intent(getApplicationContext(), ResearchBackgroundActivity.class);
                 startActivity(researchIntent);
             }
         });
@@ -52,7 +40,7 @@ public class Search extends AppCompatActivity {
         search2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent searchIntent = new Intent(getApplicationContext(), Search.class);
+                Intent searchIntent = new Intent(getApplicationContext(), SearchActivity.class);
                 startActivity(searchIntent);
             }
         });
@@ -60,7 +48,7 @@ public class Search extends AppCompatActivity {
         favoritesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent favoritesIntent = new Intent(getApplication(), Favorites.class);
+                Intent favoritesIntent = new Intent(getApplication(), FavoritesActivity.class);
                 startActivity(favoritesIntent);
             }
         });
@@ -68,7 +56,7 @@ public class Search extends AppCompatActivity {
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent settingsIntent = new Intent(getApplicationContext(), Settings.class);
+                Intent settingsIntent = new Intent(getApplicationContext(), SettingsActivity.class);
                 startActivity(settingsIntent);
             }
         });

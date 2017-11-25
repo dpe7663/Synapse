@@ -6,14 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class ResearchBackground extends AppCompatActivity {
+public class RecentNewsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_research_background);
+        setContentView(R.layout.activity_recent_news);
 
-        /*Creates the buttons for each button located at the botton of the class*/
+         /*Creates the buttons for each button located at the bottom of the class*/
         Button profileButton = (Button) findViewById(R.id.profileButton);
         Button researchButton = (Button) findViewById(R.id.researchButton);
         Button searchButton = (Button) findViewById(R.id.search2Button);
@@ -24,7 +24,7 @@ public class ResearchBackground extends AppCompatActivity {
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profileIntent = new Intent(getApplicationContext(), UserProfile.class);
+                Intent profileIntent = new Intent(getApplicationContext(), UserProfileActivity.class);
                 startActivity(profileIntent);
             }
         });
@@ -32,7 +32,7 @@ public class ResearchBackground extends AppCompatActivity {
         researchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent researchIntent = new Intent(getApplicationContext(), ResearchBackground.class);
+                Intent researchIntent = new Intent(getApplicationContext(), ResearchBackgroundActivity.class);
                 startActivity(researchIntent);
             }
         });
@@ -40,7 +40,7 @@ public class ResearchBackground extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent searchIntent = new Intent(getApplicationContext(), Search.class);
+                Intent searchIntent = new Intent(getApplicationContext(), SearchActivity.class);
                 startActivity(searchIntent);
             }
         });
@@ -48,7 +48,7 @@ public class ResearchBackground extends AppCompatActivity {
         favoritesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent favoritesIntent = new Intent(getApplication(), Favorites.class);
+                Intent favoritesIntent = new Intent(getApplication(), FavoritesActivity.class);
                 startActivity(favoritesIntent);
             }
         });
@@ -56,7 +56,7 @@ public class ResearchBackground extends AppCompatActivity {
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent settingsIntent = new Intent(getApplicationContext(), Settings.class);
+                Intent settingsIntent = new Intent(getApplicationContext(), SettingsActivity.class);
                 startActivity(settingsIntent);
             }
         });

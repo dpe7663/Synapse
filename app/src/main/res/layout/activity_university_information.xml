@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.loslolos.synapse.UniversityInformation">
+    tools:context="com.example.loslolos.synapse.UniversityInformationActivity">
 
     <TextView
         android:id="@+id/universityInformationTextView"

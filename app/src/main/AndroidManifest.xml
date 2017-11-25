@@ -9,22 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AccountInformation" />
-        <activity android:name=".UniversityInformation" />
-        <activity android:name=".UserProfile" />
-        <activity android:name=".ResearchBackground" />
-        <activity android:name=".RecentNews" />
-        <activity android:name=".Search" />
-        <activity android:name=".SearchResults" />
-        <activity android:name=".Favorites"/>
-        <activity android:name=".Settings">
-        </activity>
+        <activity android:name=".AccountInformationActivity" />
+        <activity android:name=".UniversityInformationActivity" />
+        <activity android:name=".UserProfileActivity" />
+        <activity android:name=".ResearchBackgroundActivity" />
+        <activity android:name=".RecentNewsActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".SearchResultsActivity" />
+        <activity android:name=".FavoritesActivity" />
+        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>

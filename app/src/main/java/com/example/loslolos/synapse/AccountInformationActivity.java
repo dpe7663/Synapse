@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class AccountInformation extends AppCompatActivity {
+public class AccountInformationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class AccountInformation extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentNext = new Intent(getApplicationContext(), UniversityInformation.class);
+                Intent intentNext = new Intent(getApplicationContext(), UniversityInformationActivity.class);
                 startActivity(intentNext);
             }
         });

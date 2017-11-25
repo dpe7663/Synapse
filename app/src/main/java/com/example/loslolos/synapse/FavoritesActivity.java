@@ -4,41 +4,28 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
-public class UserProfile extends AppCompatActivity {
+public class FavoritesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
-
-        /*Creates a new PreviousResearchButton*/
-        Button prevResearchButton = (Button) findViewById(R.id.buttonPrevR);
+        setContentView(R.layout.activity_favorites);
 
         /*Creates the Image Buttons according to their corresponding actions*/
-        ImageButton profileImageButton = (ImageButton) findViewById(R.id.imageButtonProfile);
-        ImageButton researchImageButton = (ImageButton) findViewById(R.id.imageButtonResearch);
-        ImageButton searchImageButton = (ImageButton) findViewById(R.id.imageButtonSearch);
-        ImageButton favoritesImageButton = (ImageButton) findViewById(R.id.imageButtonFavorite);
-        ImageButton settingsImageButton = (ImageButton) findViewById(R.id.imageButtonSettings);
-
-        /*Creates an action listener for previousResearchButton*/
-        prevResearchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent researchIntent = new Intent(getApplicationContext(), ResearchBackground.class);
-                startActivity(researchIntent);
-            }
-        });
+        ImageButton profileImageButton = (ImageButton) findViewById(R.id.imageButtonProfile2);
+        ImageButton researchImageButton = (ImageButton) findViewById(R.id.imageButtonResearch2);
+        ImageButton searchImageButton = (ImageButton) findViewById(R.id.imageButtonSearch2);
+        ImageButton favoritesImageButton = (ImageButton) findViewById(R.id.imageButtonFavorite2);
+        ImageButton settingsImageButton = (ImageButton) findViewById(R.id.imageButtonSettings2);
 
         /*Creates action listeners for each single image button created above in order to obtain
         each class according to their corresponding actions*/
         profileImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent profileIntent = new Intent(getApplicationContext(), UserProfile.class);
+                Intent profileIntent = new Intent(getApplicationContext(), UserProfileActivity.class);
                 startActivity(profileIntent);
             }
         });
@@ -46,7 +33,7 @@ public class UserProfile extends AppCompatActivity {
         researchImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent researchIntent = new Intent(getApplicationContext(), ResearchBackground.class);
+                Intent researchIntent = new Intent(getApplicationContext(), ResearchBackgroundActivity.class);
                 startActivity(researchIntent);
             }
         });
@@ -54,7 +41,7 @@ public class UserProfile extends AppCompatActivity {
         searchImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent searchIntent = new Intent(getApplicationContext(), Search.class);
+                Intent searchIntent = new Intent(getApplicationContext(), SearchActivity.class);
                 startActivity(searchIntent);
             }
         });
@@ -62,7 +49,7 @@ public class UserProfile extends AppCompatActivity {
         favoritesImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent favoritesIntent = new Intent(getApplication(), Favorites.class);
+                Intent favoritesIntent = new Intent(getApplicationContext(), FavoritesActivity.class);
                 startActivity(favoritesIntent);
             }
         });
@@ -70,7 +57,7 @@ public class UserProfile extends AppCompatActivity {
         settingsImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent settingsIntent = new Intent(getApplicationContext(), Settings.class);
+                Intent settingsIntent = new Intent(getApplicationContext(), SettingsActivity.class);
                 startActivity(settingsIntent);
             }
         });
