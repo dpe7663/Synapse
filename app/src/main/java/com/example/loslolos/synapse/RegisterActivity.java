@@ -24,7 +24,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     EditText editTextPassword;
 
     ProgressBar progressBar;
-    ProgressDialog progressDialog;
 
     //reference for Firebase authorization
     private FirebaseAuth mAuth;
@@ -90,11 +89,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         if (password.length() < MIN_PASSWORD_LENGTH) {
             editTextPassword.setError("Minimum length of password should be 6");
         }
-
-        //if validations are ok...
-        //show a progressDialog message
-        //progressDialog.setMessage("Registering User...");
-        //progressDialog.show();
 
         //progressBar is set to visible once user presses the register button
         progressBar.setVisibility(View.VISIBLE);
