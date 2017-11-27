@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "934302232044",
+    "firebase_url": "https://synapse-16e77.firebaseio.com",
+    "project_id": "synapse-16e77",
+    "storage_bucket": "synapse-16e77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934302232044:android:73c42a40266e5a94",
+        "android_client_info": {
+          "package_name": "com.example.loslolos.synapse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934302232044-3mrpll8pp9f334a991hsv3m5k9eh1dke.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.loslolos.synapse",
+            "certificate_hash": "0b999beef434d7c6bc52c3d4c8e1dd5cdf622eb2"
+          }
+        },
+        {
+          "client_id": "934302232044-vs2393r2j7m1rp904jo7dhgfgv7dsm9o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9AcJD59fE5L5w6zYaoQdaC5xa5Fhjt50"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934302232044-vs2393r2j7m1rp904jo7dhgfgv7dsm9o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
