@@ -90,6 +90,7 @@
         android:layout_width="330dp"
         android:layout_height="415dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintTop_toBottomOf="@id/textViewFavoritesTitle"
         app:layout_constraintBottom_toTopOf="@id/imageButtonSearch2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,10 +107,12 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="2"
+                android:background="@drawable/underline">
 
                 <TextView
                     android:id="@+id/textViewUser1"
+                    android:contentDescription="@string/other_user_name1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -127,8 +130,10 @@
                     android:id="@+id/imageButtonUser1"
                     android:layout_width="34dp"
                     android:layout_height="23dp"
+                    android:layout_weight=".25"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/arrow" />
+                    android:src="@drawable/arrow"
+                    android:conentDescription="@string/arrow_button_description"/>
 
             </LinearLayout>
 
@@ -136,16 +141,23 @@
 
             <TextView
                 android:id="@+id/textViewFavoriteInfo1"
+                android:textAppearance="@style/SmallText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/other_user_info" />
+                android:text="@string/other_user_info"
+                android:paddingLeft="50dp"
+                android:paddingStart="50dp"
+                android:paddingRight="0dp"
+                android:paddingEnd="0dp"
+                android:contentDescription="@string/other_user_info"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="2"
+                android:background="@drawable/underline">
 
                 <TextView
                     android:id="@+id/textViewUser2"
@@ -156,6 +168,7 @@
                     android:layout_weight="1.75"
                     android:gravity="center_vertical"
                     android:text="@string/other_user_name2"
+                    android:contentDescription="@string/other_user_name2"
                     android:textAppearance="@style/RegularText"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.509"
@@ -166,15 +179,23 @@
                     android:id="@+id/imageButtonUser2"
                     android:layout_width="34dp"
                     android:layout_height="23dp"
+                    android:layout_weight=".25"
                     android:background="@android:color/transparent"
+                    android:conentDescription="@string/arrow_button_description"
                     android:src="@drawable/arrow" />
 
             </LinearLayout>
 
             <TextView
                 android:id="@+id/textViewFavoriteInfo2"
+                android:textAppearance="@style/SmallText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:paddingStart="50dp"
+                android:paddingRight="0dp"
+                android:paddingEnd="0dp"
+                android:contentDescription="@string/other_user_info"
                 android:text="@string/other_user_info" />
 
             <LinearLayout
@@ -182,7 +203,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="2"
+                android:background="@drawable/underline">
 
                 <TextView
                     android:id="@+id/textViewUser3"
@@ -193,6 +215,7 @@
                     android:layout_weight="1.75"
                     android:gravity="center_vertical"
                     android:text="@string/other_user_name3"
+                    android:contentDescription="@string/other_user_name3"
                     android:textAppearance="@style/RegularText"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.509"
@@ -203,15 +226,23 @@
                     android:id="@+id/imageButtonUser3"
                     android:layout_width="34dp"
                     android:layout_height="23dp"
+                    android:layout_weight=".25"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/arrow" />
+                    android:src="@drawable/arrow"
+                    android:conentDescription="@string/arrow_button_description"/>
 
             </LinearLayout>
 
             <TextView
                 android:id="@+id/textViewFavoriteInfo3"
+                android:textAppearance="@style/SmallText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:paddingStart="50dp"
+                android:paddingRight="0dp"
+                android:paddingEnd="0dp"
+                android:contentDescription="@string/other_user_info"
                 android:text="@string/other_user_info" />
 
             <LinearLayout
@@ -219,7 +250,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="2"
+                android:background="@drawable/underline">
 
                 <TextView
                     android:id="@+id/textViewUser4"
@@ -230,6 +262,7 @@
                     android:layout_weight="1.75"
                     android:gravity="center_vertical"
                     android:text="@string/other_user_name4"
+                    android:contentDescription="@string/other_user_name4"
                     android:textAppearance="@style/RegularText"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.509"
@@ -240,15 +273,23 @@
                     android:id="@+id/imageButtonUser4"
                     android:layout_width="34dp"
                     android:layout_height="23dp"
+                    android:layout_weight=".25"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/arrow" />
+                    android:src="@drawable/arrow"
+                    android:conentDescription="@string/arrow_button_description"/>
 
             </LinearLayout>
 
             <TextView
                 android:id="@+id/textViewFavoriteInfo4"
+                android:textAppearance="@style/SmallText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:paddingStart="50dp"
+                android:paddingRight="0dp"
+                android:paddingEnd="0dp"
+                android:contentDescription="@string/other_user_info"
                 android:text="@string/other_user_info" />
 
             <LinearLayout
@@ -256,7 +297,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="2"
+                android:background="@drawable/underline">
 
                 <TextView
                     android:id="@+id/textViewUser5"
@@ -268,6 +310,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/other_user_name5"
                     android:textAppearance="@style/RegularText"
+                    android:contentDescription="@string/other_user_name5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.509"
                     app:layout_constraintStart_toStartOf="parent"
@@ -278,14 +321,22 @@
                     android:layout_width="34dp"
                     android:layout_height="23dp"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/arrow" />
+                    android:src="@drawable/arrow"
+                    android:layout_weight=".25"
+                    android:conentDescription="@string/arrow_button_description"/>
 
             </LinearLayout>
 
             <TextView
                 android:id="@+id/textViewFavoriteInfo5"
+                android:textAppearance="@style/SmallText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:paddingStart="50dp"
+                android:paddingRight="0dp"
+                android:paddingEnd="0dp"
+                android:contentDescription="@string/other_user_info"
                 android:text="@string/other_user_info" />
 
         </LinearLayout>
