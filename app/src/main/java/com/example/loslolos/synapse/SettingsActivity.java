@@ -8,7 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class SettingsActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +20,20 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         /*Creates a logout Button*/
-        Button logoutButton = (Button) findViewById(R.id.logoutBtn);
+        Button logoutBtn = (Button) findViewById(R.id.logoutBtn);
 
-        /*Creates an action Listener for the Logout Button*/
-        logoutButton.setOnClickListener(new View.OnClickListener() {
+        mAuth = FirebaseAuth.getInstance();
+
+        /*Creates an onClick Listener for the Logout Button*/
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //When the logoutBtn is clicked, the built in signOut() method is called
+                //for the instance of Firebase. This will sign out the user.
+                mAuth.signOut();
+                finish();
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+
                 Context context = getApplicationContext();
                 CharSequence text = "Logout Successful!";
                 int duration = Toast.LENGTH_SHORT;
