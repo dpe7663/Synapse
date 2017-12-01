@@ -24,8 +24,9 @@
         <activity android:name=".SearchActivity" />
         <activity android:name=".SearchResultsActivity" />
         <activity android:name=".FavoritesActivity" />
-        <activity android:name=".SettingsActivity"></activity>
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".RatingActivity"></activity>
     </application>
 
 </manifest>
