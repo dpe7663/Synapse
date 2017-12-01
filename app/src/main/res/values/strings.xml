@@ -47,4 +47,7 @@
     <string name="other_user_name5">Firstname Lastname 5</string>
     <string name="other_user_info">Major:major\nConcentration:concentration\nFields of Interest:field 1\nfield 2\nfield 3...</string>
 
+    <!--for rating page-->
+    <string name="rating_title">Rate App</string>
+
 </resources>

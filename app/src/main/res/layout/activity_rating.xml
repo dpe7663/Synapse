@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.loslolos.synapse.RatingActivity">
+
+    <ImageButton
+        android:id="@+id/imageButtonProfile3"
+        android:layout_width="44dp"
+        android:layout_height="43dp"
+        android:background="@drawable/profile_button"
+        android:contentDescription="@string/profile_button_description"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonResearch3"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonResearch3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonResearch3"
+        app:srcCompat="?android:attr/selectableItemBackground" />
+
+    <ImageButton
+        android:id="@+id/imageButtonResearch3"
+        android:layout_width="48dp"
+        android:layout_height="40dp"
+        android:background="@drawable/research_button"
+        android:contentDescription="@string/research_button_description"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonSearch3"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonSearch3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonProfile3"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonSearch3" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSearch3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/search_button"
+        android:contentDescription="@string/search_button_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonFavorite3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonResearch3"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+    <ImageButton
+        android:id="@+id/imageButtonFavorite3"
+        android:layout_width="47dp"
+        android:layout_height="43dp"
+        android:background="@drawable/favorites_button"
+        android:contentDescription="@string/favorite_button_description"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonSearch3"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonSettings3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonSearch3"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonSearch3" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSettings3"
+        android:layout_width="46dp"
+        android:layout_height="42dp"
+        android:background="@drawable/settings_button"
+        android:contentDescription="@string/settings_button_description"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonFavorite3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonFavorite3"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonFavorite3" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageButtonSearch3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/TitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/rating_title"
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+</android.support.constraint.ConstraintLayout>
