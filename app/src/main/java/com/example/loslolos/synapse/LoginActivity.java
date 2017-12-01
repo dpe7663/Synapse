@@ -129,8 +129,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     //finish LoginActivity. This prevents user from going back to login screen
                     finish();
 
-                    //start AccountInformationActivity
-                    Intent intent = new Intent(LoginActivity.this, AccountInformationActivity.class);
+                    //start UserProfileActivity
+                    Intent intent = new Intent(LoginActivity.this, UserProfileActivity.class);
 
                     //clears all open activities on top of stack, which would be Login/Register activity.
                     //important because if user presses Back button, it will send them back to Login/Register activity screens
@@ -160,9 +160,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //if current user is not null (meaning already logged in)...
         if (mAuth.getCurrentUser() != null) {
-            //finish the activity, and start AccountInformationActivity
+            //finish the activity, and start UserProfileActivity
             finish();
-            startActivity(new Intent(this, AccountInformationActivity.class));
+            startActivity(new Intent(this, UserProfileActivity.class));
         }
     }
 */

@@ -1,6 +1,5 @@
 package com.example.loslolos.synapse;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -16,12 +15,24 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     //initialize variables from the elements in activity_register.xml
     EditText editTextEmail;
     EditText editTextPassword;
+    EditText editTextFirstName;
+    EditText editTextLastName;
+    EditText editTextUsername;
+
+    String firstname;
+    String lastname;
+    String username;
 
     ProgressBar progressBar;
 
@@ -41,6 +52,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
+        editTextFirstName = (EditText) findViewById(R.id.editTextFirstName);
+        editTextLastName = (EditText) findViewById(R.id.editTextLastName);
+        editTextUsername = (EditText) findViewById(R.id.editTextUsername);
+
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         //set variable equal to an instance of the Firebase Authorization
@@ -59,6 +74,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         //set variables equal to what the user enters in for their Email and Password
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+
+        firstname = editTextFirstName.getText().toString().trim();
+        lastname = editTextLastName.getText().toString().trim();
+        username = editTextUsername.getText().toString().trim();
 
         //if email is empty...
         //error message comes up
@@ -105,17 +124,37 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         //if user is registered successfully...
                         if (task.isSuccessful()) {
 
+                            //Initialize a String variable called user_id, which stores the current user's
+                            //unique ID from email authentication
+                            String user_id = mAuth.getCurrentUser().getUid();
+
+                            /*Initialize a DatabaseReference variable called current_user_db, which
+                            stores the place where the user's account info will go to in Firebase
+                            when the user registers. It finds the "Users" child in the database,
+                            and stores the user_id as a child inside of it*/
+                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
+
+                            //Make a HashMap called newPost which will store the values that the
+                            //user enters for their first name, last name, and username
+                            Map newPost = new HashMap();
+                            newPost.put("First Name", firstname);
+                            newPost.put("Last Name", lastname);
+                            newPost.put("Username", username);
+
+                            /*Take the current_user_db DatabaseReference variable and set it's
+                            values equal to the newPost HashMap. This line stores the first name,
+                            last name, and username inside of the user_id child in Firebase*/
+                            current_user_db.setValue(newPost);
+
+                            //clears all open activities on top of stack, which would be signup/login activity.
+                            //important because if user presses Back button, it will send them back to signup/login activity screens
                             finish();
 
                             //user is successfully registered and logged in
                             Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
 
-                            //start AccountInformationActivity activity
-                            startActivity(new Intent(RegisterActivity.this, AccountInformationActivity.class));
-
-                            //clears all open activities on top of stack, which would be signup/login activity.
-                            //important because if user presses Back button, it will send them back to signup/login activity screens
-                            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            //start UserProfileActivity
+                            startActivity(new Intent(RegisterActivity.this, UserProfileActivity.class));
 
                         }
 
