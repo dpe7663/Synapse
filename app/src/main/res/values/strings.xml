@@ -50,4 +50,7 @@
     <!--for rating page-->
     <string name="rating_title">Rate App</string>
 
+    <!--for edit_profile page-->
+    <string name="edit_profile_title">Edit Profile</string>
+
 </resources>
