@@ -6,8 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -15,10 +18,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -39,6 +47,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     //reference for Firebase authorization
     private FirebaseAuth mAuth;
 
+
     //default minimum password length in Firebase is 6 characters, set as a final variable
     final int MIN_PASSWORD_LENGTH = 6;
 
@@ -56,15 +65,77 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editTextLastName = (EditText) findViewById(R.id.editTextLastName);
         editTextUsername = (EditText) findViewById(R.id.editTextUsername);
 
+        //Spinner spinnerMajors = (Spinner) findViewById(R.id.spinnerMajors);
+
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         //set variable equal to an instance of the Firebase Authorization
         mAuth = FirebaseAuth.getInstance();
 
+        //make a reference to the Firebase Database so that we can pull values from it
+        //to populate the spinners for the majors, and fields of interest
+        DatabaseReference fDatabaseRoot = FirebaseDatabase.getInstance().getReference();
+
         //give onClickListeners to buttonRegister and textViewLogin
         //see the bottom of this file to see the onCLick method
         findViewById(R.id.buttonRegister).setOnClickListener(this);
         findViewById(R.id.textViewLogin).setOnClickListener(this);
+        
+        //Majors Spinner
+        fDatabaseRoot.child("Majors").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                // Is better to use a List, because you don't know the size
+                // of the iterator returned by dataSnapshot.getChildren() to
+                // initialize the array
+                final List<String> majors = new ArrayList<String>();
+
+                for (DataSnapshot majorSnapshot: dataSnapshot.getChildren()) {
+                    String majorName = majorSnapshot.child("Name").getValue(String.class);
+                    majors.add(majorName);
+                }
+
+                Spinner spinnerMajors = (Spinner) findViewById(R.id.spinnerMajors);
+                ArrayAdapter<String> majorsAdapter = new ArrayAdapter<String>(RegisterActivity.this, android.R.layout.simple_spinner_item, majors);
+                majorsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerMajors.setAdapter(majorsAdapter);
+                
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        //Fields of Interest AutoComplete
+        fDatabaseRoot.child("Fields of Interest").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                // Is better to use a List, because you don't know the size
+                // of the iterator returned by dataSnapshot.getChildren() to
+                // initialize the array
+                final List<String> interests = new ArrayList<String>();
+
+                for (DataSnapshot interestSnapshot: dataSnapshot.getChildren()) {
+                    String interestName = interestSnapshot.child("Name").getValue(String.class);
+                    interests.add(interestName);
+                }
+
+                AutoCompleteTextView autoFOI1 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI1);
+                ArrayAdapter<String> interestsAdapter = new ArrayAdapter<String>(RegisterActivity.this, android.R.layout.simple_spinner_item, interests);
+                //interestsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                autoFOI1.setAdapter(interestsAdapter);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     //registerUser() method handles all of the options for a user registering for Synapse
