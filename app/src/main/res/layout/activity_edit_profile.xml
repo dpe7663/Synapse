@@ -248,25 +248,162 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/textViewFOITitleEdit"
-                style="@style/SubtitleText"
-                android:layout_width="match_parent"
+                android:id="@+id/textViewFOI1Edit"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="1dp"
-                android:text="@string/FOI_subtitle" />
+                android:fontFamily="@font/quicksand"
+                android:text="Field of Interest"
+                android:textColor="#E4E5E5"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayout" />
 
-            <TextView
-                android:id="@+id/textViewFOIEdit"
-                style="@style/SmallText"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:id="@+id/FOI1RelativeLayoutEdit"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:paddingLeft="8dp"
-                android:background="@drawable/single_line_text_border"
-                android:lines="5" />
+                android:background="@drawable/oval_spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.452"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stateTextView">
+
+                <Spinner
+                    android:id="@+id/spinnerFOI1Edit"
+                    android:layout_width="315dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textViewFOI2Edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
+                android:text="Field of Interest"
+                android:textColor="#E4E5E5"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayout" />
+
+            <RelativeLayout
+                android:id="@+id/FOI2RelativeLayoutEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/oval_spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.452"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stateTextView">
+
+                <Spinner
+                    android:id="@+id/spinnerFOI2Edit"
+                    android:layout_width="315dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textViewFOI3Edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
+                android:text="Field of Interest"
+                android:textColor="#E4E5E5"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayout" />
+
+            <RelativeLayout
+                android:id="@+id/FOI3RelativeLayoutEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/oval_spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.452"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stateTextView">
+
+                <Spinner
+                    android:id="@+id/spinnerFOI3Edit"
+                    android:layout_width="315dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textViewFOI4Edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
+                android:text="Field of Interest"
+                android:textColor="#E4E5E5"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayout" />
+
+            <RelativeLayout
+                android:id="@+id/FOI4RelativeLayoutEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/oval_spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.452"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stateTextView">
+
+                <Spinner
+                    android:id="@+id/spinnerFOI4Edit"
+                    android:layout_width="315dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textViewFOI5Edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
+                android:text="Field of Interest"
+                android:textColor="#E4E5E5"
+                android:textSize="24sp" />
+
+            <RelativeLayout
+                android:id="@+id/FOI5RelativeLayoutEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/oval_spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.452"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stateTextView">
+
+                <Spinner
+                    android:id="@+id/spinnerFOI5Edit"
+                    android:layout_width="315dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textViewAboutTitleEdit"
@@ -276,13 +413,15 @@
                 android:layout_marginBottom="1dp"
                 android:text="@string/bio_subtitle" />
 
-            <TextView
+            <EditText
                 android:id="@+id/textViewAboutEdit"
                 style="@style/SmallText"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:paddingStart="8dp"
                 android:paddingLeft="8dp"
                 android:background="@drawable/single_line_text_border"
                 android:lines="6" />
