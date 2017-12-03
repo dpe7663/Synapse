@@ -7,14 +7,13 @@
     tools:context="com.example.loslolos.synapse.UserProfileActivity">
 
     <TextView
-        android:id="@+id/textViewRegister"
+        android:id="@+id/textViewUsername"
+        style="@style/TitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        style="@style/TitleText"
-        android:text="@string/user_name"
         app:layout_constraintBottom_toTopOf="@id/scrollViewProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -96,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewRegister">
+        app:layout_constraintTop_toBottomOf="@id/textViewUsername">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -119,7 +118,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:text="@string/user_major"
                 android:background="@drawable/single_line_text_border"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
@@ -131,20 +129,19 @@
                 android:layout_height="10dp" />
 
             <TextView
+                android:id="@+id/textViewConcentrationTitle"
                 style="@style/SubtitleText"
-                android:id="@+id/textViewConcentration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/concentration_subtitle" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textViewConcentration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/user_concentration"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:background="@drawable/single_line_text_border"/>
+                android:background="@drawable/single_line_text_border" />
 
             <Space
                 android:layout_width="match_parent"
@@ -163,12 +160,11 @@
             <TextView
                 android:id="@+id/textViewFOI"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="234dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:lines="5"
-                android:text="@string/user_FOI"
                 android:background="@drawable/single_line_text_border"
+                android:lines="5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
@@ -213,16 +209,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 android:text="@string/contact_subtitle"
-                app:layout_constraintBottom_toTopOf="@+id/textViewContact"
-                app:layout_constraintStart_toStartOf="@+id/textViewContact" />
+                app:layout_constraintBottom_toTopOf="@+id/textViewEmail"
+                app:layout_constraintStart_toStartOf="@+id/textViewEmail" />
 
             <TextView
-                android:id="@+id/textViewContact"
+                android:id="@+id/textViewEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:text="@string/user_contact"
                 android:background="@drawable/single_line_text_border"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.32"

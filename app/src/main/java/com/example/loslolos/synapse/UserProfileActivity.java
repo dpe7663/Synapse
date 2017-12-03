@@ -1,32 +1,102 @@
 package com.example.loslolos.synapse;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class UserProfileActivity extends AppCompatActivity {
+
+    //Initialize variables that will be used to reference the TextView fields in the UserProfileActivity
+    TextView textViewUsername;
+    TextView textViewMajor;
+    //TextView textViewConcentration;
+    TextView textViewEmail;
+    TextView textViewFOI;
+
+    //String variables used to store a user's registration info from Firebase
+    String username;
+    String major;
+    String email;
+    String FOI1;
+
+    //String uid is used to store a user's unique ID
+    String uid;
+
+    //DatabaseReference synapseDatabase is a reference for the Firebase Database
+    DatabaseReference synapseDatabase;
+
+    //FirebaseUser user gets the currently logged in user
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
+        //user variable is set to the currently logged in user
+        //uid is set to the user's unique ID
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        uid = user.getUid();
+
+        //Variables made to reference the TextViews from activity_user_profile.xml
+        textViewUsername = (TextView) findViewById(R.id.textViewUsername);
+        textViewMajor = (TextView) findViewById(R.id.textViewMajor);
+        //textViewConcentration;
+        textViewEmail = (TextView) findViewById(R.id.textViewEmail);
+        textViewFOI = (TextView) findViewById(R.id.textViewFOI);
+
+        //synapseDatabase is set to reference the Firebase Database
+        synapseDatabase = FirebaseDatabase.getInstance().getReference();
+
+        //Add a ValueEventListener to synapseDatabase. This will be used to pull the logged
+        //in user's registration info from Firebase and populate it on his/her profile page
+        synapseDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                //Take each variable, set it equal to the value
+                //that's found in the appropriate child in Firebase.
+                //In the username example: the variables find the "Users" child, then finds the "uid" child,
+                //then the "Username" child.
+                username = dataSnapshot.child("Users").child(uid).child("Username").getValue(String.class);
+                major = dataSnapshot.child("Users").child(uid).child("Major").getValue(String.class);
+                email = dataSnapshot.child("Users").child(uid).child("Email").getValue(String.class);
+                FOI1 = dataSnapshot.child("Users").child(uid).child("First Field of Interest").getValue(String.class);
+
+                //Set the referenced TextView variables equal to what we just pulled in from Firebase
+                textViewUsername.setText(username);
+                textViewMajor.setText(major);
+                textViewEmail.setText(email);
+                textViewFOI.setText(FOI1);
+
+            }
+
+            //If there's a problem, a notification pops up
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+                Toast.makeText(getApplicationContext(), "Uh oh! Something bad happened. Sorry.", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         //Creates a TextView to display the about information
         TextView textViewAbout = (TextView) findViewById(R.id.textViewAbout);

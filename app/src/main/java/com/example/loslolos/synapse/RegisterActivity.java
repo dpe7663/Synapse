@@ -14,9 +14,9 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.loslolos.synapse.LoginActivity;
-import com.example.loslolos.synapse.R;
-import com.example.loslolos.synapse.UserProfileActivity;
+//import com.example.loslolos.synapse.LoginActivity;
+//import com.example.loslolos.synapse.R;
+//import com.example.loslolos.synapse.UserProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -53,12 +53,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     Spinner spinnerMajors;
 
+    //Initialize String variables that will eventually be entered into Firebase when a user registers
     String email;
     String password;
     String firstname;
     String lastname;
     String username;
     String about;
+    String major;
     String firstFOI;
     String secondFOI;
     String thirdFOI;
@@ -70,6 +72,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     //reference for Firebase authorization
     private FirebaseAuth mAuth;
 
+    //reference for the Firebase Database
     DatabaseReference synapseDatabase;
 
     //default minimum password length in Firebase is 6 characters, set as a final variable
@@ -127,12 +130,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 // initialize the array
                 final List<String> majors = new ArrayList<String>();
 
+                //This Enhanced For Loop basically says, "For each DataSnapshot data in dataSnapShot,
+                //add the values of the children titled "Name" to the majors list
                 for (DataSnapshot majorSnapshot : dataSnapshot.getChildren()) {
                     String majorName = majorSnapshot.child("Name").getValue(String.class);
                     majors.add(majorName);
                 }
 
-                //Spinner spinnerMajors = (Spinner) findViewById(R.id.spinnerMajors);
                 ArrayAdapter<String> majorsAdapter = new ArrayAdapter<String>(RegisterActivity.this, android.R.layout.simple_spinner_item, majors);
                 majorsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerMajors.setAdapter(majorsAdapter);
@@ -193,6 +197,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         firstname = editTextFirstName.getText().toString().trim();
         lastname = editTextLastName.getText().toString().trim();
         username = editTextUsername.getText().toString().trim();
+
+        major = spinnerMajors.getSelectedItem().toString();
 
         firstFOI = autoFOI1.getText().toString().trim();
         secondFOI = autoFOI2.getText().toString().trim();
@@ -263,6 +269,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             newPost.put("Username", username);
                             newPost.put("Email", email);
                             newPost.put("Password", password);
+                            newPost.put("Major", major);
                             newPost.put("First Field of Interest", firstFOI);
                             newPost.put("Second Field of Interest", secondFOI);
                             newPost.put("Third Field of Interest", thirdFOI);
