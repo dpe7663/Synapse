@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.loslolos.synapse.EditProfileActivity">
+    tools:context="com.example.loslolos.synapse.EditProfile">
 
     <ProgressBar
         android:id="@+id/progressBarEdit"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewEditProfileTitle"
+        android:id="@+id/textViewEditProfile"
         style="@style/TitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,28 +30,25 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/quicksand"
-        android:text="@string/edit_profile_title"
+        android:text="Edit Profile"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/editProfileScrollView"
         app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <ScrollView
         android:id="@+id/editProfileScrollView"
         android:layout_width="330dp"
         android:layout_height="490dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewEditProfileTitle">
+        app:layout_constraintTop_toBottomOf="@id/textViewEditProfile">
 
         <TableLayout
-            android:id="@+id/editProfileLinearLayout"
+            android:id="@+id/editProfileTableLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -74,7 +71,12 @@
                 android:layout_marginRight="8dp"
                 android:ems="10"
                 android:hint="@string/first_name_hint"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toTopOf="@+id/editTextLastNameEdit"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRegisterEdit" />
 
             <TextView
                 android:id="@+id/textViewLastNameEdit"
@@ -82,7 +84,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:text="@string/last_name_subtitle" />
+                android:text="@string/last_name_subtitle"
+                app:layout_constraintBottom_toTopOf="@+id/editTextLastNameEdit"
+                app:layout_constraintStart_toStartOf="@+id/editTextLastNameEdit" />
 
             <EditText
                 android:id="@+id/editTextLastNameEdit"
@@ -94,8 +98,12 @@
                 android:ems="10"
                 android:hint="@string/last_name_hint"
                 android:inputType="textPersonName"
-                android:visibility="visible" />
-
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/textViewPasswordEdit"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextFirstNameEdit" />
 
             <TextView
                 android:id="@+id/textViewPasswordEdit"
@@ -103,7 +111,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:text="@string/password_subtitle" />
+                android:text="@string/password_subtitle"
+                app:layout_constraintBottom_toTopOf="@+id/editTextPasswordEdit"
+                app:layout_constraintStart_toStartOf="@+id/editTextPasswordEdit" />
 
             <EditText
                 android:id="@+id/editTextPasswordEdit"
@@ -114,7 +124,12 @@
                 android:layout_marginRight="8dp"
                 android:ems="10"
                 android:hint="@string/password_hint"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                app:layout_constraintBottom_toTopOf="@+id/editTextPasswordCEdit"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextUsernameEdit" />
 
             <TextView
                 android:id="@+id/textViewPasswordCEdit"
@@ -122,7 +137,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
-                android:text="@string/password_confirmation_subtitle" />
+                android:text="@string/password_confirmation_subtitle"
+                app:layout_constraintBottom_toTopOf="@+id/editTextPasswordCEdit"
+                app:layout_constraintStart_toStartOf="@+id/editTextPasswordCEdit" />
 
             <EditText
                 android:id="@+id/editTextPasswordCEdit"
@@ -133,7 +150,12 @@
                 android:layout_marginRight="8dp"
                 android:ems="10"
                 android:hint="@string/password_confirmation_hint"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                app:layout_constraintBottom_toTopOf="@+id/stateTextViewEdit"
+                app:layout_constraintHorizontal_bias="0.509"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPasswordEdit" />
 
             <TextView
                 android:id="@+id/stateTextViewEdit"
@@ -142,7 +164,9 @@
                 android:fontFamily="@font/quicksand"
                 android:text="State"
                 android:textColor="#E4E5E5"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/universityInformationTextViewEdit" />
 
             <RelativeLayout
                 android:id="@+id/stateRelativeLayoutEdit"
@@ -150,10 +174,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:background="@drawable/oval_spinner">
+                android:background="@drawable/oval_spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.452"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stateTextViewEdit">
 
                 <Spinner
-                    android:id="@+id/stateSpinner2"
+                    android:id="@+id/spinnerStateEdit"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
@@ -168,7 +196,9 @@
                 android:fontFamily="@font/quicksand"
                 android:text="University"
                 android:textColor="#E4E5E5"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stateRelativeLayoutEdit" />
 
             <RelativeLayout
                 android:id="@+id/universityRelativeLayoutEdit"
@@ -176,10 +206,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:background="@drawable/oval_spinner">
+                android:background="@drawable/oval_spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.452"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/universityTextViewEdit">
 
                 <Spinner
-                    android:id="@+id/universitySpinnerEdit"
+                    android:id="@+id/spinnerUniversityEdit"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
@@ -194,7 +228,9 @@
                 android:fontFamily="@font/quicksand"
                 android:text="Major"
                 android:textColor="#E4E5E5"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/universityRelativeLayoutEdit" />
 
             <RelativeLayout
                 android:id="@+id/majorRelativeLayoutEdit"
@@ -206,10 +242,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.452"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/majorTextView2">
+                app:layout_constraintTop_toBottomOf="@+id/majorTextViewEdit">
 
                 <Spinner
-                    android:id="@+id/majorSpinnerEdit"
+                    android:id="@+id/spinnerMajorsEdit"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
@@ -218,13 +254,15 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/concentrationTextViewEdit"
+                android:id="@+id/textViewConcentrationEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/quicksand"
                 android:text="Concentration (Optional)"
                 android:textColor="#E4E5E5"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayoutEdit" />
 
             <RelativeLayout
                 android:id="@+id/concentrationRelativeLayoutEdit"
@@ -236,10 +274,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.452"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/concentrationTextView2">
+                app:layout_constraintTop_toBottomOf="@+id/concentrationTextViewEdit">
 
                 <Spinner
-                    android:id="@+id/concentrationSpinnerEdit"
+                    android:id="@+id/spinnerConcentrationsEdit"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
@@ -256,7 +294,7 @@
                 android:textColor="#E4E5E5"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayoutEdit" />
 
             <RelativeLayout
                 android:id="@+id/FOI1RelativeLayoutEdit"
@@ -268,15 +306,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.452"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stateTextView">
+                app:layout_constraintTop_toBottomOf="@+id/stateTextViewEdit">
 
-                <Spinner
-                    android:id="@+id/spinnerFOI1Edit"
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteFOI1Edit"
+                    style="@style/RegularText"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/input_border"/>
             </RelativeLayout>
 
             <TextView
@@ -288,7 +328,7 @@
                 android:textColor="#E4E5E5"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayoutEdit" />
 
             <RelativeLayout
                 android:id="@+id/FOI2RelativeLayoutEdit"
@@ -300,15 +340,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.452"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stateTextView">
+                app:layout_constraintTop_toBottomOf="@+id/stateTextViewEdit">
 
-                <Spinner
-                    android:id="@+id/spinnerFOI2Edit"
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteFOI2Edit"
+                    style="@style/RegularText"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/input_border"/>
             </RelativeLayout>
 
             <TextView
@@ -320,7 +362,7 @@
                 android:textColor="#E4E5E5"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayoutEdit" />
 
             <RelativeLayout
                 android:id="@+id/FOI3RelativeLayoutEdit"
@@ -332,15 +374,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.452"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stateTextView">
+                app:layout_constraintTop_toBottomOf="@+id/stateTextViewEdit">
 
-                <Spinner
-                    android:id="@+id/spinnerFOI3Edit"
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteFOI3Edit"
+                    style="@style/RegularText"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/input_border"/>
             </RelativeLayout>
 
             <TextView
@@ -352,7 +396,7 @@
                 android:textColor="#E4E5E5"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayoutEdit" />
 
             <RelativeLayout
                 android:id="@+id/FOI4RelativeLayoutEdit"
@@ -364,15 +408,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.452"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stateTextView">
+                app:layout_constraintTop_toBottomOf="@+id/stateTextViewEdit">
 
-                <Spinner
-                    android:id="@+id/spinnerFOI4Edit"
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteFOI4Edit"
+                    style="@style/RegularText"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/input_border"/>
             </RelativeLayout>
 
             <TextView
@@ -382,7 +428,9 @@
                 android:fontFamily="@font/quicksand"
                 android:text="Field of Interest"
                 android:textColor="#E4E5E5"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/majorRelativeLayoutEdit" />
 
             <RelativeLayout
                 android:id="@+id/FOI5RelativeLayoutEdit"
@@ -394,40 +442,45 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.452"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stateTextView">
+                app:layout_constraintTop_toBottomOf="@+id/stateTextViewEdit">
 
-                <Spinner
-                    android:id="@+id/spinnerFOI5Edit"
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteFOI5Edit"
+                    style="@style/RegularText"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/input_border"/>
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/textViewAboutTitleEdit"
-                style="@style/SubtitleText"
-                android:layout_width="match_parent"
+                android:id="@+id/aboutTextViewEdit"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="1dp"
-                android:text="@string/bio_subtitle" />
+                android:fontFamily="@font/quicksand"
+                android:text="About"
+                android:textColor="#E4E5E5"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
-                android:id="@+id/textViewAboutEdit"
-                style="@style/SmallText"
-                android:inputType="text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:paddingStart="8dp"
-                android:paddingLeft="8dp"
-                android:background="@drawable/single_line_text_border"
-                android:lines="6" />
+                android:id="@+id/editTextAboutEdit"
+                style="@style/RegularText"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_width="315dp"
+                android:layout_height="150dp"
+                android:singleLine="false"
+                android:maxLines="10"
+                android:background="@drawable/input_border"
+                android:maxLength="250"
+                app:layout_constraintStart_toStartOf="parent"
+                />
 
             <Button
-                android:id="@+id/buttonEditProfile"
+                android:id="@+id/updateProfileButton"
                 android:layout_width="175dp"
                 android:layout_height="45dp"
                 android:layout_marginBottom="8dp"
@@ -437,12 +490,10 @@
                 android:alpha="1.0"
                 android:background="@drawable/button_border_1"
                 android:elevation="0dp"
-                android:text="Save Profile"
+                android:text="Update Profile"
                 android:textAllCaps="false"
                 android:textColor="#E4E5E5"
                 android:textSize="18sp" />
         </TableLayout>
-
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>

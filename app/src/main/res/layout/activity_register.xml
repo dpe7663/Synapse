@@ -379,11 +379,13 @@
 
                 <AutoCompleteTextView
                     android:id="@+id/autoCompleteFOI1"
+                    style="@style/RegularText"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/input_border"/>
             </RelativeLayout>
 
             <TextView
@@ -411,11 +413,13 @@
 
                 <AutoCompleteTextView
                     android:id="@+id/autoCompleteFOI2"
+                    style="@style/RegularText"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/input_border"/>
             </RelativeLayout>
 
             <TextView
@@ -443,11 +447,13 @@
 
                 <AutoCompleteTextView
                     android:id="@+id/autoCompleteFOI3"
+                    style="@style/RegularText"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/input_border"/>
             </RelativeLayout>
 
             <TextView
@@ -475,11 +481,13 @@
 
                 <AutoCompleteTextView
                     android:id="@+id/autoCompleteFOI4"
+                    style="@style/RegularText"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/input_border"/>
             </RelativeLayout>
 
             <TextView
@@ -507,12 +515,38 @@
 
                 <AutoCompleteTextView
                     android:id="@+id/autoCompleteFOI5"
+                    style="@style/RegularText"
                     android:layout_width="315dp"
                     android:layout_height="40dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true" />
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/input_border"/>
             </RelativeLayout>
+
+            <TextView
+                android:id="@+id/aboutTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
+                android:text="About"
+                android:textColor="#E4E5E5"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextAbout"
+                style="@style/RegularText"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_width="315dp"
+                android:layout_height="150dp"
+                android:singleLine="false"
+                android:maxLines="10"
+                android:background="@drawable/input_border"
+                android:maxLength="250"
+                app:layout_constraintStart_toStartOf="parent"
+                />
 
             <Button
                 android:id="@+id/buttonRegister"
@@ -530,9 +564,7 @@
                 android:textColor="#E4E5E5"
                 android:textSize="18sp" />
         </TableLayout>
-
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>
 <!--<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"

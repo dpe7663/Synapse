@@ -1,5 +1,6 @@
 package com.example.loslolos.synapse;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,10 +42,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     EditText editTextFirstName;
     EditText editTextLastName;
     EditText editTextUsername;
+    EditText editTextAbout;
 
     String firstname;
     String lastname;
     String username;
+    String about;
 
     ProgressBar progressBar;
 
@@ -64,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editTextFirstName = (EditText) findViewById(R.id.editTextFirstName);
         editTextLastName = (EditText) findViewById(R.id.editTextLastName);
         editTextUsername = (EditText) findViewById(R.id.editTextUsername);
+        editTextAbout = (EditText) findViewById(R.id.editTextAbout);
 
         //Spinner spinnerMajors = (Spinner) findViewById(R.id.spinnerMajors);
 
@@ -256,13 +264,30 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     }
                 });
 
+        //Gets the string from the about editText and stores it in the about variable
+        about = editTextAbout.getText().toString();
+
+        /*Creates a new file named about.txt making it public for the user and other
+        apps to see it but able to edit it*/
+        File file = new File(getExternalFilesDir(null), "about.txt");
+
+        /*Exception thrown to verify the file is getting created correctly and in the
+        right path where it should go. It is also available for later use in other activities.
+         */
+        try {
+            FileOutputStream outputStream = new FileOutputStream(file, true);
+            outputStream.write(about.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //onClick method for the Register Button and the TextView
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
+            switch (view.getId()) {
             //case for pressing buttonRegister. If the button is pressed, the
             //registerUser() method is called
             case R.id.buttonRegister:

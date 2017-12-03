@@ -1,11 +1,25 @@
 package com.example.loslolos.synapse;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class UserProfileActivity extends AppCompatActivity {
 
@@ -13,6 +27,33 @@ public class UserProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
+        //Creates a TextView to display the about information
+        TextView textViewAbout = (TextView) findViewById(R.id.textViewAbout);
+
+        //Creates a new file with the directory of the public file to be read
+        File file = new File(getExternalFilesDir(null), "about.txt");
+
+        /*Reads the file with a BufferedReader and a FileReader in order to read
+        them line by line and append them accordingly with their line break as
+        user typed his information.
+         */
+        try{
+            BufferedReader fileReader = new BufferedReader(new FileReader(file));
+            StringBuilder strBuilder = new StringBuilder();
+            String line;
+            while((line = fileReader.readLine()) != null)
+            {
+                strBuilder.append(line);
+                strBuilder.append("\n");
+            }
+            fileReader.close();
+            strBuilder.trimToSize();
+            String contentsOfFile = strBuilder.toString();
+            textViewAbout.setText(contentsOfFile);
+        }
+        catch (IOException e){
+        }
 
         /*Creates a new PreviousResearchButton*/
         Button prevResearchButton = (Button) findViewById(R.id.buttonPrevR);
