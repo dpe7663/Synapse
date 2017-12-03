@@ -10,7 +10,7 @@ import android.widget.EditText;
 import java.io.File;
 import java.io.FileOutputStream;
 
-public class EditProfile extends AppCompatActivity {
+public class EditProfileActivity extends AppCompatActivity {
     EditText editTextAbout;
     String about;
 

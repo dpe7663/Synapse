@@ -27,7 +27,7 @@ public class SettingsActivity extends AppCompatActivity {
         editProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), EditProfile.class));
+                startActivity(new Intent(getApplicationContext(), EditProfileActivity.class));
             }
         });
 

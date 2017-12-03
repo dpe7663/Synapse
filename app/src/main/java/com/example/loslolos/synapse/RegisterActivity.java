@@ -1,6 +1,6 @@
+//import android.support.v7.app.AppCompatActivity;
 package com.example.loslolos.synapse;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +14,9 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.loslolos.synapse.LoginActivity;
+import com.example.loslolos.synapse.R;
+import com.example.loslolos.synapse.UserProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -26,9 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -44,16 +45,32 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     EditText editTextUsername;
     EditText editTextAbout;
 
+    AutoCompleteTextView autoFOI1;
+    AutoCompleteTextView autoFOI2;
+    AutoCompleteTextView autoFOI3;
+    AutoCompleteTextView autoFOI4;
+    AutoCompleteTextView autoFOI5;
+
+    Spinner spinnerMajors;
+
+    String email;
+    String password;
     String firstname;
     String lastname;
     String username;
     String about;
+    String firstFOI;
+    String secondFOI;
+    String thirdFOI;
+    String fourthFOI;
+    String fifthFOI;
 
     ProgressBar progressBar;
 
     //reference for Firebase authorization
     private FirebaseAuth mAuth;
 
+    DatabaseReference synapseDatabase;
 
     //default minimum password length in Firebase is 6 characters, set as a final variable
     final int MIN_PASSWORD_LENGTH = 6;
@@ -64,16 +81,25 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        //set variables equal to references for the EditText fields and ProgressBar
+        //set variables equal to references for the EditText/AutoCompleteTextView fields and ProgressBar
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
         editTextFirstName = (EditText) findViewById(R.id.editTextFirstName);
         editTextLastName = (EditText) findViewById(R.id.editTextLastName);
         editTextUsername = (EditText) findViewById(R.id.editTextUsername);
+
         editTextAbout = (EditText) findViewById(R.id.editTextAbout);
 
-        //Spinner spinnerMajors = (Spinner) findViewById(R.id.spinnerMajors);
+        //FOI is abbreviated for Field of Interest
+        autoFOI1 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI1);
+        autoFOI2 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI2);
+        autoFOI3 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI3);
+        autoFOI4 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI4);
+        autoFOI5 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI5);
+
+        //A Spinner is like a drop down menu. Used later to select a Major
+        spinnerMajors = (Spinner) findViewById(R.id.spinnerMajors);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
@@ -82,15 +108,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         //make a reference to the Firebase Database so that we can pull values from it
         //to populate the spinners for the majors, and fields of interest
-        DatabaseReference fDatabaseRoot = FirebaseDatabase.getInstance().getReference();
+        synapseDatabase = FirebaseDatabase.getInstance().getReference();
 
         //give onClickListeners to buttonRegister and textViewLogin
         //see the bottom of this file to see the onCLick method
         findViewById(R.id.buttonRegister).setOnClickListener(this);
         findViewById(R.id.textViewLogin).setOnClickListener(this);
-        
-        //Majors Spinner
-        fDatabaseRoot.child("Majors").addValueEventListener(new ValueEventListener() {
+
+        //Take the Database reference and add an event listener to the "Majors" child.
+        //This ValueListener() allows the Majors Spinner (drop down menu) to populate
+        //with the table of majors in Firebase.
+        synapseDatabase.child("Majors").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -99,16 +127,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 // initialize the array
                 final List<String> majors = new ArrayList<String>();
 
-                for (DataSnapshot majorSnapshot: dataSnapshot.getChildren()) {
+                for (DataSnapshot majorSnapshot : dataSnapshot.getChildren()) {
                     String majorName = majorSnapshot.child("Name").getValue(String.class);
                     majors.add(majorName);
                 }
 
-                Spinner spinnerMajors = (Spinner) findViewById(R.id.spinnerMajors);
+                //Spinner spinnerMajors = (Spinner) findViewById(R.id.spinnerMajors);
                 ArrayAdapter<String> majorsAdapter = new ArrayAdapter<String>(RegisterActivity.this, android.R.layout.simple_spinner_item, majors);
                 majorsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerMajors.setAdapter(majorsAdapter);
-                
+
             }
 
             @Override
@@ -117,29 +145,27 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
-        //Fields of Interest AutoComplete
-        fDatabaseRoot.child("Fields of Interest").addValueEventListener(new ValueEventListener() {
+        //Take the Database reference and add an event listener to the "Fields of Interest" child.
+        //This ValueListener() allows the Field of Interest AutoCompleteTextViews to populate
+        //with the table of interests in Firebase.
+        synapseDatabase.child("Fields of Interest").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                // Is better to use a List, because you don't know the size
-                // of the iterator returned by dataSnapshot.getChildren() to
-                // initialize the array
+                //Initialize a List to hold the table of interests from Firebase
                 final List<String> interests = new ArrayList<String>();
 
-                for (DataSnapshot interestSnapshot: dataSnapshot.getChildren()) {
+                //This Enhanced For Loop basically says, "For each DataSnapshot data in dataSnapShot,
+                //add the values of the children titled "Name" to the interests list
+                for (DataSnapshot interestSnapshot : dataSnapshot.getChildren()) {
                     String interestName = interestSnapshot.child("Name").getValue(String.class);
                     interests.add(interestName);
                 }
 
-                AutoCompleteTextView autoFOI1 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI1);
-                AutoCompleteTextView autoFOI2 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI2);
-                AutoCompleteTextView autoFOI3 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI3);
-                AutoCompleteTextView autoFOI4 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI4);
-                AutoCompleteTextView autoFOI5 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI5);
-
                 ArrayAdapter<String> interestsAdapter = new ArrayAdapter<String>(RegisterActivity.this, android.R.layout.simple_dropdown_item_1line, interests);
                 interestsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                //These next lines add the list of interests from Firebase into each variable
                 autoFOI1.setAdapter(interestsAdapter);
                 autoFOI2.setAdapter(interestsAdapter);
                 autoFOI3.setAdapter(interestsAdapter);
@@ -161,12 +187,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private void registerUser() {
 
         //set variables equal to what the user enters in for their Email and Password
-        String email = editTextEmail.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
+        email = editTextEmail.getText().toString().trim();
+        password = editTextPassword.getText().toString().trim();
 
         firstname = editTextFirstName.getText().toString().trim();
         lastname = editTextLastName.getText().toString().trim();
         username = editTextUsername.getText().toString().trim();
+
+        firstFOI = autoFOI1.getText().toString().trim();
+        secondFOI = autoFOI2.getText().toString().trim();
+        thirdFOI = autoFOI3.getText().toString().trim();
+        fourthFOI = autoFOI4.getText().toString().trim();
+        fifthFOI = autoFOI5.getText().toString().trim();
 
         //if email is empty...
         //error message comes up
@@ -229,6 +261,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             newPost.put("First Name", firstname);
                             newPost.put("Last Name", lastname);
                             newPost.put("Username", username);
+                            newPost.put("Email", email);
+                            newPost.put("Password", password);
+                            newPost.put("First Field of Interest", firstFOI);
+                            newPost.put("Second Field of Interest", secondFOI);
+                            newPost.put("Third Field of Interest", thirdFOI);
+                            newPost.put("Fourth Field of Interest", fourthFOI);
+                            newPost.put("Fifth Field of Interest", fifthFOI);
 
                             /*Take the current_user_db DatabaseReference variable and set it's
                             values equal to the newPost HashMap. This line stores the first name,
@@ -283,11 +322,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+
     //onClick method for the Register Button and the TextView
     @Override
     public void onClick(View view) {
 
-            switch (view.getId()) {
+        switch (view.getId()) {
             //case for pressing buttonRegister. If the button is pressed, the
             //registerUser() method is called
             case R.id.buttonRegister:
