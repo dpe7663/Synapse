@@ -125,9 +125,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }
 
                 AutoCompleteTextView autoFOI1 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI1);
-                ArrayAdapter<String> interestsAdapter = new ArrayAdapter<String>(RegisterActivity.this, android.R.layout.simple_spinner_item, interests);
-                //interestsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                AutoCompleteTextView autoFOI2 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI2);
+                AutoCompleteTextView autoFOI3 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI3);
+                AutoCompleteTextView autoFOI4 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI4);
+                AutoCompleteTextView autoFOI5 = (AutoCompleteTextView) findViewById(R.id.autoCompleteFOI5);
+
+                ArrayAdapter<String> interestsAdapter = new ArrayAdapter<String>(RegisterActivity.this, android.R.layout.simple_dropdown_item_1line, interests);
+                interestsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 autoFOI1.setAdapter(interestsAdapter);
+                autoFOI2.setAdapter(interestsAdapter);
+                autoFOI3.setAdapter(interestsAdapter);
+                autoFOI4.setAdapter(interestsAdapter);
+                autoFOI5.setAdapter(interestsAdapter);
 
             }
 
@@ -136,6 +145,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             }
         });
+
     }
 
     //registerUser() method handles all of the options for a user registering for Synapse
