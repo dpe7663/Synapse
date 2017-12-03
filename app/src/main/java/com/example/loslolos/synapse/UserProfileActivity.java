@@ -29,13 +29,22 @@ public class UserProfileActivity extends AppCompatActivity {
     TextView textViewMajor;
     //TextView textViewConcentration;
     TextView textViewEmail;
-    TextView textViewFOI;
+    TextView textViewFOI1;
+    TextView textViewFOI2;
+    TextView textViewFOI3;
+    TextView textViewFOI4;
+    TextView textViewFOI5;
 
-    //String variables used to store a user's registration info from Firebase
+    //String variables used to store a user's registration info from Firebase.
+    //FOI is an abbreviation for the user's Fields of Interest that they selected during registration.
     String username;
     String major;
     String email;
     String FOI1;
+    String FOI2;
+    String FOI3;
+    String FOI4;
+    String FOI5;
 
     //String uid is used to store a user's unique ID
     String uid;
@@ -61,7 +70,11 @@ public class UserProfileActivity extends AppCompatActivity {
         textViewMajor = (TextView) findViewById(R.id.textViewMajor);
         //textViewConcentration;
         textViewEmail = (TextView) findViewById(R.id.textViewEmail);
-        textViewFOI = (TextView) findViewById(R.id.textViewFOI);
+        textViewFOI1 = (TextView) findViewById(R.id.textViewFOI1);
+        textViewFOI2 = (TextView) findViewById(R.id.textViewFOI2);
+        textViewFOI3 = (TextView) findViewById(R.id.textViewFOI3);
+        textViewFOI4 = (TextView) findViewById(R.id.textViewFOI4);
+        textViewFOI5 = (TextView) findViewById(R.id.textViewFOI5);
 
         //synapseDatabase is set to reference the Firebase Database
         synapseDatabase = FirebaseDatabase.getInstance().getReference();
@@ -80,12 +93,20 @@ public class UserProfileActivity extends AppCompatActivity {
                 major = dataSnapshot.child("Users").child(uid).child("Major").getValue(String.class);
                 email = dataSnapshot.child("Users").child(uid).child("Email").getValue(String.class);
                 FOI1 = dataSnapshot.child("Users").child(uid).child("First Field of Interest").getValue(String.class);
+                FOI2 = dataSnapshot.child("Users").child(uid).child("Second Field of Interest").getValue(String.class);
+                FOI3 = dataSnapshot.child("Users").child(uid).child("Third Field of Interest").getValue(String.class);
+                FOI4 = dataSnapshot.child("Users").child(uid).child("Fourth Field of Interest").getValue(String.class);
+                FOI5 = dataSnapshot.child("Users").child(uid).child("Fifth Field of Interest").getValue(String.class);
 
                 //Set the referenced TextView variables equal to what we just pulled in from Firebase
                 textViewUsername.setText(username);
                 textViewMajor.setText(major);
                 textViewEmail.setText(email);
-                textViewFOI.setText(FOI1);
+                textViewFOI1.setText(FOI1);
+                textViewFOI2.setText(FOI2);
+                textViewFOI3.setText(FOI3);
+                textViewFOI4.setText(FOI4);
+                textViewFOI5.setText(FOI5);
 
             }
 

@@ -1,6 +1,8 @@
 package com.example.loslolos.synapse;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -51,6 +53,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.buttonSignIn).setOnClickListener(this);
         findViewById(R.id.buttonRegister).setOnClickListener(this);
 
+/*
+        MediaPlayer player = MediaPlayer.create(this, R.raw.backgroundmusictest);
+        player.setLooping(true);
+        player.start();
+*/
 
         /* Creates action listener for the Login button */
         /*
