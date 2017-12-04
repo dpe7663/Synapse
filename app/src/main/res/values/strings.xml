@@ -7,7 +7,7 @@
     <string name="user_name">First Last</string>
     <string name="major_subtitle">Major</string>
     <string name="user_major">user\'s major</string>
-    <string name="concentration_subtitle">Concentration</string>
+    <string name="concentration_subtitle">Concentration (optional)</string>
     <string name="user_concentration">user\'s concentration</string>
     <string name="FOI_subtitle">Fields of Interest</string>
     <string name="user_FOI">field 1\nfield 2\nfield 3\nfield 4\nfield 5</string>
@@ -37,6 +37,7 @@
     <string name="password_hint">enter password</string>
     <string name="password_confirmation_subtitle">Confirm Password</string>
     <string name="password_confirmation_hint">re-enter password</string>
+    <string name="register_button">Create Profile</string>
 
     <!--for favorites page-->
     <string name="favorites_title">Favorites</string>
@@ -52,4 +53,11 @@
 
     <!--for edit_profile page-->
     <string name="edit_profile_title">Edit Profile</string>
+    <string name="state_subtitle">State</string>
+    <string name="university_subtitle">University</string>
+    <string name="FOI_subtitle_2">Field of Interest</string>
+    <string name="edit_profile_button">Update Profile</string>
+
+    <!--for register page-->
+    <string name="returning_user_message">Already have an account? Click here to login</string>
 </resources>
