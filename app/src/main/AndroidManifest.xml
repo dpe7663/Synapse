@@ -32,7 +32,8 @@
         <activity android:name=".FavoritesActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".EditProfileActivity"></activity>
+        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".CreditsActivity"></activity>
     </application>
 
 </manifest>

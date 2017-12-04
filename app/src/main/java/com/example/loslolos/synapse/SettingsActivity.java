@@ -35,6 +35,12 @@ public class SettingsActivity extends AppCompatActivity {
         ImageButton creditsBtn = (ImageButton) findViewById(R.id.creditsArrowBtn);
 
         /*Creates an onClick Listener for the Credits Image Button*/
+        creditsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),CreditsActivity.class));
+            }
+        });
 
 
         /*Creates a logout Button*/
