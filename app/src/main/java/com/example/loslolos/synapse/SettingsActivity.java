@@ -31,6 +31,12 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        /*Creates a credits button*/
+        ImageButton creditsBtn = (ImageButton) findViewById(R.id.creditsArrowBtn);
+
+        /*Creates an onClick Listener for the Credits Image Button*/
+
+
         /*Creates a logout Button*/
         Button logoutBtn = (Button) findViewById(R.id.logoutBtn);
 
@@ -54,5 +60,6 @@ public class SettingsActivity extends AppCompatActivity {
                 toast.show();
             }
         });
+
     }
 }
