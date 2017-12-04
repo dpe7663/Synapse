@@ -67,4 +67,7 @@
     <string name="credits_option">Credits</string>
     <string name="music_option_label"> On / Off</string>
 
+    <!--for recent new page -->
+    <string name="recent_news_title">Recent News</string>
+
 </resources>
