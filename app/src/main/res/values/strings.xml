@@ -2,6 +2,7 @@
     <string name="app_name">Synapse</string>
     <string name="next_button">Next</string>
     <string name="arrow_button_description">Arrow button for more</string>
+    <string name="logout_button">Log Out</string>
 
     <!--for user_profile page-->
     <string name="user_name">First Last</string>
@@ -23,7 +24,7 @@
     <string name="favorite_button_description">Favorite menu button</string>
     <string name="settings_button_description">Settings menu button</string>
 
-    <!--for account_info page-->
+    <!--for register and edit profile page-->
     <string name="account_info_title">Account Information</string>
     <string name="first_name_subtitle">First Name</string>
     <string name="first_name_hint">enter first name</string>
@@ -38,6 +39,12 @@
     <string name="password_confirmation_subtitle">Confirm Password</string>
     <string name="password_confirmation_hint">re-enter password</string>
     <string name="register_button">Create Profile</string>
+    <string name="returning_user_message">Already have an account? Click here to login</string>
+    <string name="edit_profile_title">Edit Profile</string>
+    <string name="state_subtitle">State</string>
+    <string name="university_subtitle">University</string>
+    <string name="FOI_subtitle_2">Field of Interest</string>
+    <string name="edit_profile_button">Update Profile</string>
 
     <!--for favorites page-->
     <string name="favorites_title">Favorites</string>
@@ -51,13 +58,13 @@
     <!--for rating page-->
     <string name="rating_title">Rate App</string>
 
-    <!--for edit_profile page-->
-    <string name="edit_profile_title">Edit Profile</string>
-    <string name="state_subtitle">State</string>
-    <string name="university_subtitle">University</string>
-    <string name="FOI_subtitle_2">Field of Interest</string>
-    <string name="edit_profile_button">Update Profile</string>
+    <!--for settings page-->
+    <string name="settings_title">Settings</string>
+    <string name="edit_profile_option">Edit Profile</string>
+    <string name="rate_app_option">Rate App</string>
+    <string name="music_option">Music</string>
+    <string name="contact_option">Contact</string>
+    <string name="credits_option">Credits</string>
+    <string name="music_option_label"> On / Off</string>
 
-    <!--for register page-->
-    <string name="returning_user_message">Already have an account? Click here to login</string>
 </resources>
