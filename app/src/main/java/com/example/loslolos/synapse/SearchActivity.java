@@ -21,11 +21,11 @@ import java.util.List;
 public class SearchActivity extends AppCompatActivity {
 
     //Initialize variables that will reference the elements in activity_search.xml
-    AutoCompleteTextView autoFOI;
+    public static AutoCompleteTextView autoFOI;
 
     //fieldofinterest will hold the user's selection for the Field of Interest that he/she
     //wants to search
-    public static String fieldofinterest;
+    //public static String fieldofinterest;
 
     //variable to reference Firebase so we can pull values from it
     DatabaseReference synapseDatabase;
@@ -66,7 +66,7 @@ public class SearchActivity extends AppCompatActivity {
                 autoFOI.setAdapter(interestsAdapter);
 
                 //set String variable fieldofinterest equal to what the user selected for the Field of Interest
-                fieldofinterest = autoFOI.getText().toString().trim();
+                //fieldofinterest = autoFOI.getText().toString().trim();
             }
 
             @Override
