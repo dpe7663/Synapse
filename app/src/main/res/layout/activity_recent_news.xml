@@ -16,7 +16,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="5dp">
 
         <Button
             android:id="@+id/profileButton"
@@ -28,7 +30,8 @@
             android:background="@drawable/profile_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
+            android:layout_marginLeft="32dp" />
 
         <Space
             android:layout_width="0dp"
@@ -46,8 +49,9 @@
             android:background="@drawable/research_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/profileButton"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton"
-            app:layout_constraintVertical_bias="0.515" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
+            app:layout_constraintVertical_bias="0.515"
+            android:layout_marginLeft="25dp" />
 
         <Space
             android:layout_width="0dp"
@@ -65,8 +69,9 @@
             android:background="@drawable/search_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/researchButton"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton"
-            app:layout_constraintVertical_bias="0.515" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
+            app:layout_constraintVertical_bias="0.515"
+            android:layout_marginLeft="25dp" />
 
         <Space
             android:layout_width="0dp"
@@ -84,8 +89,9 @@
             android:background="@drawable/favorites_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/search2Button"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton"
-            app:layout_constraintVertical_bias="0.515" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
+            app:layout_constraintVertical_bias="0.515"
+            android:layout_marginLeft="25dp" />
 
         <Space
             android:layout_width="0dp"
@@ -106,8 +112,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/favoritesButton"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton"
-            app:layout_constraintVertical_bias="0.515" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
+            app:layout_constraintVertical_bias="0.515"
+            android:layout_marginRight="32dp"
+            android:layout_marginLeft="25dp" />
 
         <Space
             android:layout_width="0dp"
@@ -141,10 +149,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/searchImageBtn"
+        app:layout_constraintBottom_toTopOf="@+id/search2Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.235" />
+        app:layout_constraintVertical_bias="0.235"
+        tools:ignore="NotSibling" />
 </android.support.constraint.ConstraintLayout>

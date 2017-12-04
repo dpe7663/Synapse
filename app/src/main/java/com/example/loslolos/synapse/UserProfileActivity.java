@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -110,11 +109,8 @@ public class UserProfileActivity extends AppCompatActivity {
 
             }
 
-            //If there's a problem, a notification pops up
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
-                Toast.makeText(getApplicationContext(), "Uh oh! Something bad happened. Sorry.", Toast.LENGTH_SHORT).show();
 
             }
         });

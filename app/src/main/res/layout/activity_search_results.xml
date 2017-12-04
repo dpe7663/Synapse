@@ -7,6 +7,7 @@
     tools:context="com.example.loslolos.synapse.SearchResultsActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -15,7 +16,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginRight="30dp">
 
         <Button
             android:id="@+id/profileButton"
@@ -27,12 +29,13 @@
             android:background="@drawable/profile_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
+            android:layout_marginLeft="32dp" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"></Space>
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/researchButton"
@@ -44,13 +47,14 @@
             android:background="@drawable/research_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/profileButton"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton"
-            app:layout_constraintVertical_bias="0.515" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
+            app:layout_constraintVertical_bias="0.515"
+            android:layout_marginLeft="25dp" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"></Space>
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/search2Button"
@@ -62,13 +66,14 @@
             android:background="@drawable/search_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/researchButton"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton"
-            app:layout_constraintVertical_bias="0.515" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
+            app:layout_constraintVertical_bias="0.515"
+            android:layout_marginLeft="25dp" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"></Space>
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/favoritesButton"
@@ -80,13 +85,14 @@
             android:background="@drawable/favorites_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/search2Button"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton"
-            app:layout_constraintVertical_bias="0.515" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
+            app:layout_constraintVertical_bias="0.515"
+            android:layout_marginLeft="25dp" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"></Space>
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/settingsButton"
@@ -101,50 +107,42 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/favoritesButton"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton"
-            app:layout_constraintVertical_bias="0.515" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
+            app:layout_constraintVertical_bias="0.515"
+            android:layout_marginRight="32dp"
+            android:layout_marginLeft="25dp" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1"></Space>
+            android:layout_weight="1"/>
     </LinearLayout>
 
     <ListView
         android:id="@+id/searchResultsListView"
         android:layout_width="326dp"
         android:layout_height="332dp"
-        android:headerDividersEnabled="false"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="147dp" />
-
-    <TextView
-        android:id="@+id/majorTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/quicksand"
-        android:text="@string/major_subtitle"
+        android:headerDividersEnabled="false"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFOI" />
+
+    <TextView
+        android:id="@+id/textViewFOI"
+        android:layout_width="wrap_content"
+        android:layout_height="101dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:textAlignment="center"
         android:textColor="#E4E5E5"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Field Theory and Polynomials"
-        android:textAlignment="center"
-        android:textColor="#E4E5E5"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/majorTextView" />
 </android.support.constraint.ConstraintLayout>

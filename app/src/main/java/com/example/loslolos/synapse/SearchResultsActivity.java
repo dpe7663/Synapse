@@ -1,9 +1,11 @@
 package com.example.loslolos.synapse;
 
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 public class SearchResultsActivity extends AppCompatActivity {

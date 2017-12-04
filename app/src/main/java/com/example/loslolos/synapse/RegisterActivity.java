@@ -37,7 +37,7 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    //initialize variables from the elements in activity_register.xml
+    //initialize variables that will reference the elements in activity_register.xml
     EditText editTextEmail;
     EditText editTextPassword;
     EditText editTextFirstName;

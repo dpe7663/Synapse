@@ -26,9 +26,9 @@
         android:id="@+id/fieldOfInterestTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:fontFamily="@font/quicksand"
         android:text="Field of Interest"
         android:textColor="#E4E5E5"
@@ -50,22 +50,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fieldOfInterestTextView">
 
-        <Spinner
-            android:id="@+id/fieldOfInterestSpinner"
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteFOI"
+            style="@style/RegularText"
             android:layout_width="315dp"
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" />
+            android:background="@drawable/input_border" />
+        <!--android:layout_above="subfield1Spinner"-->
+
     </RelativeLayout>
 
     <TextView
         android:id="@+id/subfield1TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_alignParentLeft="true"
         android:fontFamily="@font/quicksand"
         android:text="Subfield 1 (Optional)"
         android:textColor="#E4E5E5"
@@ -73,7 +74,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.213"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fieldOfInterestRelativeLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/fieldOfInterestRelativeLayout"
+        android:layout_alignParentStart="true" />
+    <!--android:layout_above="autoCompleteFOI1"-->
 
     <RelativeLayout
         android:id="@+id/subfield1RelativeLayout"
@@ -90,17 +93,15 @@
             android:layout_width="315dp"
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentStart="true" />
+        <!--android:layout_above="fieldOfInterestTextView"-->
     </RelativeLayout>
 
     <TextView
         android:id="@+id/subfield2TextView"
         android:layout_width="wrap_content"
         android:layout_height="31dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_alignParentLeft="true"
         android:fontFamily="@font/quicksand"
         android:text="Subfield 2 (Optional)"
         android:textColor="#E4E5E5"
@@ -108,7 +109,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.221"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subfield1RelativeLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/subfield1RelativeLayout"
+        android:layout_alignParentStart="true" />
+    <!--android:layout_above="subfield1TextView"-->
 
     <RelativeLayout
         android:id="@+id/subfield2RelativeLayout"
@@ -127,28 +130,33 @@
             android:layout_width="315dp"
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentStart="true" />
+        <!--android:layout_above="subfield2TextView"-->
     </RelativeLayout>
 
     <Button
-        android:id="@+id/searchButton"
+        android:id="@+id/buttonSearch"
         android:layout_width="175dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="70dp"
+        android:layout_height="43dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/button_border_1"
         android:fontFamily="@font/quicksand"
         android:text="Search"
         android:textAllCaps="false"
         android:textColor="#E4E5E5"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subfield2RelativeLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/subfield2RelativeLayout"
+        app:layout_constraintVertical_bias="0.147" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -165,75 +173,75 @@
             android:layout_width="44dp"
             android:layout_height="43dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/profile_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1">
-        </Space>
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/researchButton"
             android:layout_width="44dp"
             android:layout_height="43dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/research_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/profileButton"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
             app:layout_constraintVertical_bias="0.515" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1">
-        </Space>
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/search2Button"
             android:layout_width="44dp"
             android:layout_height="43dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/search_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/researchButton"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
             app:layout_constraintVertical_bias="0.515" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1">
-        </Space>
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/favoritesButton"
             android:layout_width="44dp"
             android:layout_height="43dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/favorites_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/search2Button"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
             app:layout_constraintVertical_bias="0.515" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1">
-        </Space>
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/settingsButton"
@@ -241,6 +249,8 @@
             android:layout_height="43dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="32dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="32dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/settings_button"
@@ -248,13 +258,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/favoritesButton"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSearch"
             app:layout_constraintVertical_bias="0.515" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1">
-        </Space>
+            android:layout_weight="1"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
