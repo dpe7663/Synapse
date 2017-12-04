@@ -26,6 +26,7 @@ public class UserProfileActivity extends AppCompatActivity {
     //Initialize variables that will be used to reference the TextView fields in the UserProfileActivity
     TextView textViewUsername;
     TextView textViewMajor;
+    TextView textViewAbout;
     //TextView textViewConcentration;
     TextView textViewEmail;
     TextView textViewFOI1;
@@ -39,6 +40,7 @@ public class UserProfileActivity extends AppCompatActivity {
     String username;
     String major;
     String email;
+    String about;
     String FOI1;
     String FOI2;
     String FOI3;
@@ -68,6 +70,7 @@ public class UserProfileActivity extends AppCompatActivity {
         textViewUsername = (TextView) findViewById(R.id.textViewUsername);
         textViewMajor = (TextView) findViewById(R.id.textViewMajor);
         //textViewConcentration;
+        textViewAbout = (TextView) findViewById(R.id.textViewAbout);
         textViewEmail = (TextView) findViewById(R.id.textViewEmail);
         textViewFOI1 = (TextView) findViewById(R.id.textViewFOI1);
         textViewFOI2 = (TextView) findViewById(R.id.textViewFOI2);
@@ -91,6 +94,7 @@ public class UserProfileActivity extends AppCompatActivity {
                 username = dataSnapshot.child("Users").child(uid).child("Username").getValue(String.class);
                 major = dataSnapshot.child("Users").child(uid).child("Major").getValue(String.class);
                 email = dataSnapshot.child("Users").child(uid).child("Email").getValue(String.class);
+                about = dataSnapshot.child("Users").child(uid).child("About").getValue(String.class);
                 FOI1 = dataSnapshot.child("Users").child(uid).child("First Field of Interest").getValue(String.class);
                 FOI2 = dataSnapshot.child("Users").child(uid).child("Second Field of Interest").getValue(String.class);
                 FOI3 = dataSnapshot.child("Users").child(uid).child("Third Field of Interest").getValue(String.class);
@@ -101,6 +105,7 @@ public class UserProfileActivity extends AppCompatActivity {
                 textViewUsername.setText(username);
                 textViewMajor.setText(major);
                 textViewEmail.setText(email);
+                textViewAbout.setText(about);
                 textViewFOI1.setText(FOI1);
                 textViewFOI2.setText(FOI2);
                 textViewFOI3.setText(FOI3);
@@ -114,7 +119,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
             }
         });
-
+/*
         //Creates a TextView to display the about information
         TextView textViewAbout = (TextView) findViewById(R.id.textViewAbout);
 
@@ -124,7 +129,7 @@ public class UserProfileActivity extends AppCompatActivity {
         /*Reads the file with a BufferedReader and a FileReader in order to read
         them line by line and append them accordingly with their line break as
         user typed his information.
-         */
+
         try{
             BufferedReader fileReader = new BufferedReader(new FileReader(file));
             StringBuilder strBuilder = new StringBuilder();
@@ -141,7 +146,7 @@ public class UserProfileActivity extends AppCompatActivity {
         }
         catch (IOException e){
         }
-
+*/
         /*Creates a new PreviousResearchButton*/
         Button prevResearchButton = (Button) findViewById(R.id.buttonPrevR);
 

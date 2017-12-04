@@ -59,26 +59,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         player.start();
 */
 
-        /* Creates action listener for the Login button */
-        /*
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent loginIntent = new Intent (getApplicationContext(), UserProfileActivity.class);
-                startActivity(loginIntent);
-            }
-        });
-
-        /* Creates action listener for the Register Button */
-        /*
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent registerIntent = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivity(registerIntent);
-            }
-        });
-        */
     }
 
     //userLogin method manages all of the options when the user enters

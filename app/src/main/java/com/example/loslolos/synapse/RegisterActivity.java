@@ -14,9 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-//import com.example.loslolos.synapse.LoginActivity;
-//import com.example.loslolos.synapse.R;
-//import com.example.loslolos.synapse.UserProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -28,8 +25,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -73,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private FirebaseAuth mAuth;
 
     //reference for the Firebase Database
-    DatabaseReference synapseDatabase;
+    DatabaseReference refDatabase;
 
     //default minimum password length in Firebase is 6 characters, set as a final variable
     final int MIN_PASSWORD_LENGTH = 6;
@@ -111,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         //make a reference to the Firebase Database so that we can pull values from it
         //to populate the spinners for the majors, and fields of interest
-        synapseDatabase = FirebaseDatabase.getInstance().getReference();
+        refDatabase = FirebaseDatabase.getInstance().getReference();
 
         //give onClickListeners to buttonRegister and textViewLogin
         //see the bottom of this file to see the onCLick method
@@ -121,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         //Take the Database reference and add an event listener to the "Majors" child.
         //This ValueListener() allows the Majors Spinner (drop down menu) to populate
         //with the table of majors in Firebase.
-        synapseDatabase.child("Majors").addValueEventListener(new ValueEventListener() {
+        refDatabase.child("Majors").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -152,7 +147,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         //Take the Database reference and add an event listener to the "Fields of Interest" child.
         //This ValueListener() allows the Field of Interest AutoCompleteTextViews to populate
         //with the table of interests in Firebase.
-        synapseDatabase.child("Fields of Interest").addValueEventListener(new ValueEventListener() {
+        refDatabase.child("Fields of Interest").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -166,8 +161,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     interests.add(interestName);
                 }
 
-                ArrayAdapter<String> interestsAdapter = new ArrayAdapter<String>(RegisterActivity.this, android.R.layout.simple_dropdown_item_1line, interests);
-                interestsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                ArrayAdapter<String> interestsAdapter = new ArrayAdapter<String>(RegisterActivity.this, android.R.layout.simple_spinner_item, interests);
+                interestsAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 
                 //These next lines add the list of interests from Firebase into each variable
                 autoFOI1.setAdapter(interestsAdapter);
@@ -198,7 +193,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         lastname = editTextLastName.getText().toString().trim();
         username = editTextUsername.getText().toString().trim();
 
-        major = spinnerMajors.getSelectedItem().toString();
+        about = editTextAbout.getText().toString().trim();
+
+        major = spinnerMajors.getSelectedItem().toString().trim();
 
         firstFOI = autoFOI1.getText().toString().trim();
         secondFOI = autoFOI2.getText().toString().trim();
@@ -267,6 +264,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             newPost.put("First Name", firstname);
                             newPost.put("Last Name", lastname);
                             newPost.put("Username", username);
+                            newPost.put("About", about);
                             newPost.put("Email", email);
                             newPost.put("Password", password);
                             newPost.put("Major", major);
@@ -309,24 +307,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         }
                     }
                 });
-
-        //Gets the string from the about editText and stores it in the about variable
-        about = editTextAbout.getText().toString();
-
-        /*Creates a new file named about.txt making it public for the user and other
-        apps to see it but able to edit it*/
-        File file = new File(getExternalFilesDir(null), "about.txt");
-
-        /*Exception thrown to verify the file is getting created correctly and in the
-        right path where it should go. It is also available for later use in other activities.
-         */
-        try {
-            FileOutputStream outputStream = new FileOutputStream(file, true);
-            outputStream.write(about.getBytes());
-            outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 

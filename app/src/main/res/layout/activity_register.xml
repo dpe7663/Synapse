@@ -67,7 +67,7 @@
         <TableLayout
             android:id="@+id/accountInformationLinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:stretchColumns="1">
 
@@ -562,7 +562,8 @@
                 android:text="@string/register_button"
                 android:textAllCaps="false"
                 android:textColor="#E4E5E5"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:targetApi="lollipop" />
         </TableLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
