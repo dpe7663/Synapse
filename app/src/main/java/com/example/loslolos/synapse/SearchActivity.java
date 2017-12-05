@@ -28,7 +28,8 @@ public class SearchActivity extends AppCompatActivity {
     public static String fieldofinterest;
 
     //variable to reference Firebase so we can pull values from it
-    DatabaseReference refDatabase;
+    //DatabaseReference synapseDatabaseRef;
+    DatabaseReference synapseDatabaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +43,12 @@ public class SearchActivity extends AppCompatActivity {
         Button searchButton = (Button) findViewById(R.id.buttonSearch);
 
         //synapseDatabase is stores a reference of the Firebase database
-        refDatabase = FirebaseDatabase.getInstance().getReference();
+        synapseDatabaseRef = RegisterActivity.refDatabase;
+        //synapseDatabaseRef = FirebaseDatabase.getInstance().getReference();
 
         //add a value event listener to synapseDatabase. This will allow us to populate
         //the Field of Interest field with values from Firebase
-        refDatabase.child("Fields of+ Interest").addValueEventListener(new ValueEventListener() {
+        synapseDatabaseRef.child("Fields of Interest").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //Initialize a List to hold the table of interests from Firebase

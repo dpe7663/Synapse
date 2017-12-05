@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private FirebaseAuth mAuth;
 
     //reference for the Firebase Database
-    DatabaseReference refDatabase;
+    public static DatabaseReference refDatabase;
 
     //default minimum password length in Firebase is 6 characters, set as a final variable
     final int MIN_PASSWORD_LENGTH = 6;

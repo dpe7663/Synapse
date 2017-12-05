@@ -39,7 +39,7 @@ public class SearchResultsActivity extends AppCompatActivity {
 
     ListView searchResultsListView;
 
-    DatabaseReference reference;
+    //DatabaseReference reference;
 
     //Automatically created method
     @Override
