@@ -5,7 +5,6 @@
 
     <uses-sdk
         android:maxSdkVersion="26"
-        android:minSdkVersion="16"
         tools:ignore="GradleOverrides" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
